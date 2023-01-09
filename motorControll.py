@@ -2,12 +2,13 @@ import RPi.GPIO as GPIO
 import time
 
 # モータのピン番号定義
-motorRight1=10
-motorRight2=1
-motorLeft1=2
-motorLeft2=3
+motorRight1=22
+motorRight2=23
+motorLeft1=24
+motorLeft2=25
 
 # GPIO setting
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(motorRight1, GPIO.OUT)
 GPIO.setup(motorRight2, GPIO.OUT)
 GPIO.setup(motorLeft1, GPIO.OUT)
@@ -37,4 +38,12 @@ def stop():
     GPIO.output(motorLeft2, GPIO.LOW)
     time.sleep(0.5)
 
+goAlong()
+time.sleep(10)
+stop()
+time.sleep(5)
+back()
+time.sleep(10)
+stop()
+time.sleep(5)
 GPIO.cleanup()
