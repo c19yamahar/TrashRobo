@@ -1,8 +1,3 @@
-from collections import deque
-from time import sleep
-import numpy as np
-import mediapipe as mp
-import tensorflow as tf
 import time
 import datetime
 
@@ -10,15 +5,11 @@ import motorControll
 import mic
 import weather_forecast
 import jikanwari
-import LED
+import distance
 
 
 while True:
-    LED.red(False)
-    LED.green(True)
     mic_id=mic.speechInput()
-    LED.green(False)
-    LED.red(True)
     if "こっち来て" in mic_id or "おいで" in mic_id:
         mic_id = 1
     elif "時間割" in mic_id or "日課" in mic_id :
@@ -29,7 +20,21 @@ while True:
     #ゴミ箱移動(接近)
     if mic_id == 1:
         time.sleep(0.5)
-        motorControll.motor_control(goAlong)
+        motorControll.goAlong()
+        time_bg=time.time()
+        while True:
+            cm = distance.read_distance()
+            print("distance=", int(cm), "cm")
+            if cm<10:
+                break
+        time_en=time.time()
+        # 来るまでの時間を計測
+        dis_time=time_en-time_bg
+        motorControll.stop()
+        time.sleep(10)
+        motorControll.back()
+        time.sleep(dis_time)
+        motorControll.stop()
     
     # 時間割
     elif mic_id == 2:
