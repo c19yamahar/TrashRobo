@@ -20,7 +20,7 @@ def goAlong():
     GPIO.output(motorRight2, GPIO.LOW)
     GPIO.output(motorLeft1, GPIO.HIGH)
     GPIO.output(motorLeft2, GPIO.LOW)
-    time.sleep(0.5)
+    time.sleep(0.2)
 
 # 後進
 def back():
@@ -28,7 +28,7 @@ def back():
     GPIO.output(motorRight1, GPIO.LOW)
     GPIO.output(motorLeft2, GPIO.HIGH)
     GPIO.output(motorLeft1, GPIO.LOW)
-    time.sleep(0.5)
+    time.sleep(0.2)
 
 # 停止
 def stop():
@@ -36,14 +36,4 @@ def stop():
     GPIO.output(motorRight2, GPIO.LOW)
     GPIO.output(motorLeft1, GPIO.LOW)
     GPIO.output(motorLeft2, GPIO.LOW)
-    time.sleep(0.5)
-
-goAlong()
-time.sleep(10)
-stop()
-time.sleep(5)
-back()
-time.sleep(10)
-stop()
-time.sleep(5)
-GPIO.cleanup()
+    time.sleep(0.2)
