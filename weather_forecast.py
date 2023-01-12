@@ -61,8 +61,10 @@ def weatherNotice():
         telop="rainy_sunny"
     elif telop=="晴れのち雨":
         telop="sunny_rainy"
-    elif telop=="曇のち時々晴":
+    elif telop=="曇のち晴":
         telop="cloudy_sunny"
+    elif telop=="曇のち時々晴":
+        telop="cloudy_sometimes_sunny"
     else :
         telop="error"
     pygame.mixer.music.load("weather_files/"+telop+".mp3") #読み込み
