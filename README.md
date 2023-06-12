@@ -1,6 +1,6 @@
 # TrashRobo
 
-多機能ゴミ箱
+音声で動作する多機能ゴミ箱
 
 ## functions
 
@@ -19,3 +19,7 @@ $ pip install -r requirements.txt
 ```shell
 $ python .\main.py
 ```
+
+## 完成
+
+[スライド](done_slide_pdf.pdf)
